@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasūtījuma noformēšana</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="saite.css">
+</head>
+<body>
+    <header class="header text-center py-4">
+        <h1>Pasūtījuma noformēšana</h1>
+    </header>
+
+    <main class="container">
+        <form class="checkout-form" id="checkout-form">
+            <div class="mb-3">
+                <label for="address" class="form-label">Piegādes adrese</label>
+                <input type="text" class="form-control" id="address" placeholder="Ievadiet adresi" required>
+            </div>
+            <div class="mb-3">
+                <label for="card-number" class="form-label">Kartes numurs</label>
+                <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+            </div>
+            <div class="mb-3">
+                <label for="expiry-date" class="form-label">Kartes derīguma termiņš</label>
+                <input type="text" class="form-control" id="expiry-date" placeholder="MM/GG" maxlength="5" required>
+            </div>
+            <div class="mb-3">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cvv" placeholder="123" maxlength="3" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Kartes īpašnieka vārds</label>
+                <input type="text" class="form-control" id="name" placeholder="Ievadiet vārdu" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Apstiprināt pasūtījumu</button>
+        </form>
+        <div id="thank-you-message" class="text-center mt-4" style="display: none;">
+            <h2 class="text-success">Paldies par pasūtījumu!</h2>
+            <p>Jūsu pasūtījums ir veiksmīgi noformēts. Mēs piegādāsim to tuvākajā laikā.</p>
+        </div>
+    </main>
+
+    <footer class="footer text-center py-4 mt-4">
+        <p>&copy; 2024 Coffee Shop. Visas tiesības aizsargātas.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('checkout-form');
+        const thankYouMessage = document.getElementById('thank-you-message');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Novēršam formas nosūtīšanu
+            form.style.display = 'none'; // Paslēpjam formu
+            thankYouMessage.style.display = 'block'; // Parādam ziņojumu
+        });
+    </script>
+</body>
+</html>
